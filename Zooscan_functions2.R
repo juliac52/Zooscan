@@ -40,8 +40,8 @@ readZooscan<-function(filename){
   
   #multiply Min and Max by 10.6 um/pix (umpix) to get size in um
   #not sure how to convert Area 
-  zooscandata$Min.um <- zooscandata$Minor * umpix
-  zooscandata$Max.um <- zooscandata$Major * umpix
+  zooscandata$Minor.um <- zooscandata$Minor * umpix
+  zooscandata$Major.um <- zooscandata$Major * umpix
   zooscandata$Area.um2 <- zooscandata$Area * (umpix^2)
   
   return(zooscandata)
