@@ -40,8 +40,8 @@ readZooscan<-function(filename){
   
   #multiply Min and Max by 10.6 um/pix (umpix) to get size in um
   #not sure how to convert Area 
-  zooscandata$Min.um <- zooscandata$Min * umpix
-  zooscandata$Max.um <- zooscandata$Max * umpix
+  zooscandata$Min.um <- zooscandata$Minor * umpix
+  zooscandata$Max.um <- zooscandata$Major * umpix
   zooscandata$Area.um2 <- zooscandata$Area * (umpix^2)
   
   return(zooscandata)
@@ -53,13 +53,13 @@ histZooscan<-function(filename){
   #load in ggplot 
   library(ggplot2)
   library(ggpubr)
-  zoohistmax<-ggplot(zooscandata, aes(x=Max.um)) + 
+  zoohistmax<-ggplot(zooscandata, aes(x=Major.um)) + 
     geom_histogram(color="lightslategrey", fill = "darkseagreen3", 
                    bins = 12) + xlab("Size (um)") +
     ylab("Frequency") + ggtitle("Maximum Axis Size Distribution")+
     theme_classic()
   
-  zoohistmin<-ggplot(zooscandata, aes(x=Min.um)) + 
+  zoohistmin<-ggplot(zooscandata, aes(x=Minor.um)) + 
     geom_histogram(color="lightslategrey", fill = "darkseagreen3", 
                    bins = 12) + xlab("Size (um)") +
     ylab("Frequency") + ggtitle("Minimum Axis Size Distribution")+
