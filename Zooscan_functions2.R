@@ -53,23 +53,23 @@ histZooscan<-function(filename){
   #load in ggplot 
   library(ggplot2)
   library(ggpubr)
-  zoohistmax<-ggplot(zooscandata, aes(x=Major.um)) + 
+  zoohistmax<-ggplot(filename, aes(x=Major.um)) + 
     geom_histogram(color="lightslategrey", fill = "darkseagreen3", 
                    bins = 12) + xlab("Size (um)") +
     ylab("Frequency") + ggtitle("Maximum Axis Size Distribution")+
     theme_classic()
   
-  zoohistmin<-ggplot(zooscandata, aes(x=Minor.um)) + 
+  zoohistmin<-ggplot(filename, aes(x=Minor.um)) + 
     geom_histogram(color="lightslategrey", fill = "darkseagreen3", 
                    bins = 12) + xlab("Size (um)") +
     ylab("Frequency") + ggtitle("Minimum Axis Size Distribution")+
     theme_classic()
   
-  zoohistarea<-ggplot(zooscandata, aes(x=Area.um2)) + 
+  zoohistarea<-ggplot(filename, aes(x=Area.um2)) + 
     geom_histogram(color="lightslategrey", fill = "darkseagreen3", 
                    bins = 12) + xlab("Size (um)") +
     ylab("Frequency") + ggtitle("Area Size Distribution")+
     theme_classic()
   ggarrange(zoohistmax, zoohistmin, zoohistarea, ncol=1, nrow = 3)
 }
-histZooscan(zooscandata)
+
