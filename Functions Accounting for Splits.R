@@ -222,6 +222,9 @@ readZooscan333<-function(filename.a,filename.b){
 #Note: to use the above function, choose the two 333um files you want to combine
 #and set it up like this: readZooscan333("file_a.pid","file_b.pid"). The function 
 #will return zoototal with these two files processed and combined, accounting for
-#all splitting  
+#all splitting. The 333-1000um size class should always have two files, each with 
+#the same moc and net numbers. They will be labeled 1 or 2 in the file name, for
+#example: hb1907_moc8_net1_333_1_tot_1_dat1.pid and hb1907_moc8_net1_2_tot_1_dat1.pid
+#would go together 
 
 
