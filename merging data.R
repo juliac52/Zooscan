@@ -194,5 +194,19 @@ library(tidyverse)
 install.packages('RColorBrewer')
 library(RColorBrewer)
 head(brewer.pal.info)
+#########################################################################
+#I think the increasing=TRUE argument didn't work because the depth data is 
+#character data rather than numeric data. Can check this with class(zoodata.day$x2)
+#Since character data cannot be ordered, need to associate this column with numeric 
+#data.
+#Reorder the depth column (x2) in relation to another numeric column (for example, Max_Depth). 
+#For this matix, will need to add an additional column including the numeric depth data 
+#in order for this method to work. 
+zoodata.day$x2 = with(zoodata.day, reorder(x2,Max_Depth))
+#plot, with coordinate flip and reversal of x axis (limits = rev)
+p <- ggplot(zoodata.day, aes(x= x2, y=x1, fill=x2)) + 
+  geom_bar(stat = "identity") + coord_flip() + 
+  scale_x_discrete(limits = rev(levels(zoodata.day$x2)))
+
 
  
