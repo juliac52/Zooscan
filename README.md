@@ -1,4 +1,4 @@
-# Zooscan
+# :fish: Zooscan :fish:
 This repository is used by the Llopiz Lab at WHOI to collaborate on projects related to the ZooScan plankton imaging system. 
 Here, we share code to read in PID (Plankton ID) files and analyze these files using R. 
 * See the "Documentation" file for calculations and other important information.
