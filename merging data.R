@@ -208,5 +208,5 @@ p <- ggplot(zoodata.day, aes(x= x2, y=x1, fill=x2)) +
   geom_bar(stat = "identity") + coord_flip() + 
   scale_x_discrete(limits = rev(levels(zoodata.day$x2)))
 
-Test1
+
  
