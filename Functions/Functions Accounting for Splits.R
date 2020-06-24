@@ -225,6 +225,6 @@ readZooscan333<-function(filename.a,filename.b){
 #all splitting. The 333-1000um size class should always have two files, each with 
 #the same moc and net numbers. They will be labeled 1 or 2 in the file name, for
 #example: hb1907_moc8_net1_333_1_tot_1_dat1.pid and hb1907_moc8_net1_2_tot_1_dat1.pid
-#would go together 
+#would go together.
 
 
