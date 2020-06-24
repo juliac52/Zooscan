@@ -21,7 +21,7 @@
 
 ####################Functions#################### 
 #readZooscan:
-#updated in file "Functions Accounting for Splits.R"
+#updated in file "PID Read Accounting for Splits.R"
 #used for 5000 and 1000 files, 333 needs a separate function 
 #reads in raw data file, removing header metadata until line including [Data]
 #converts Minor and Major from pixels to micrometers (um) and Area to micrometers squared (um2)
