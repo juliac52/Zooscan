@@ -1,6 +1,6 @@
 ## These are all the functions we need for processing Zooscan data
 #########################################################################################
-
+#the readZooscan function is updated to account for splits in "PID Read Accounting for Splits.R"
 #function for reading in files and converting pixels to micrometers (um)
 readZooscan<-function(filename){
   library(reader)
