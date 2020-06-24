@@ -1,3 +1,4 @@
+#made function to do this automatically 
 getwd()
 ZooscanData <- read_csv("~/Downloads/SampleZooscan_HB1907Moc8Net5_333_1.txt")
 N <- 197
