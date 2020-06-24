@@ -48,9 +48,6 @@ readZooscan<-function(filename){
   #print the contents of the VolLine in allLines
   cat('raw string data at that line is: ', allLines[VolLine])
   #This convertion from string to numeric type is what we want to do math on
-  #sub() function strips off all the character stuff before the useful number
-  #and replaces it with nothing (shown by ""), decimalNumericVol is the value we 
-  #use for unit convertions
   decimalNumericVol <- as.numeric(sub("Vol=|","", allLines[VolLine]))
   #get numeric Vol value
   cat(decimalNumericVol)
@@ -59,19 +56,35 @@ readZooscan<-function(filename){
   SplitLine <- grep("SubPart=", allLines)
   #print the line number where split fraction (1=1/1, 2=1/2, 4=1/4, etc.)
   cat('line number of Split = ', SplitLine)
-  #print the contents of the VolLine in allLines
+  #print the contents of the SplitLine in allLines
   cat('raw string data at that line is: ', allLines[SplitLine])
   #This convertion from string to numeric type is what we want to do math on
-  #sub() function strips off all the character stuff before the useful number
-  #and replaces it with nothing (shown by ""), decimalNumericSplit is the value we 
-  #use for unit convertions. 
   #For some reason, this is printing the number 2X i.e. 1 would print as
   #11 and 2 would print as 22. The math works correctly (11*5 = 5, 22*5 = 10) 
   #but this may be an issue later. This is probably just an error with printing, 
   #and not with the actual numeric value 
   decimalNumericSplit <- as.numeric(sub("SubPart=|","", allLines[SplitLine]))
-  #get numeric mm/pix value
+  #get numeric value
   cat(decimalNumericSplit)
+  
+  #This part is commented out because it isn't needed unless the initial split is 
+  #something other than 1/4.
+  #The initial split was accidentally entered as "tot" rather than 1/4 for these samples, 
+  #so I hardcoded it to multiply by 4 on line "calculate zooplankton area accounting for
+  #1/4 split". Uncomment if this isn't the case:
+  #InitSplitLine <- grep("FracId=", allLines)
+  #print the line number where initial split fraction is (1=1/1, 2=1/2, 4=1/4, etc.):
+  #cat('line number of Init. Split = ', InitSplitLine)
+  #print the contents of the InitSplitLine in allLines:
+  #cat('raw string data at that line is: ', allLines[InitSplitLine])
+  #convert from string to numeric: 
+  #decimalNumericInitSplit <- as.numeric(sub("FracId=|","", allLines[InitSplitLine]))
+  #get numeric value
+  #cat(decimalNumericInitSplit)
+  #if you're using the above code, you should replace "zooscandata$Area.um2x4 <- zooscandata$Area.um2 * 4" with: 
+  #zooscandata$Area.um2xInitSplit <- zooscandata$Area.um2 * decimalNumericInitSplit
+  #also replace "zooscandata$Area.um2x4 * (decimalNumericSplit/2)*100)/decimalNumericVol" with:
+  #zooscandata$Area.um2xInitSplit * (decimalNumericSplit/2)*100)/decimalNumericVol
   
   #calculate zooplankton area accounting for 1/4 split  
   zooscandata$Area.um2x4 <- zooscandata$Area.um2 * 4
@@ -92,7 +105,7 @@ readZooscan<-function(filename){
   #Convert to decimal numeric 
   decimalNumericMaxDepth <- as.numeric(sub("Zmax=|","", allLines[MaxDepthLine]))
   decimalNumericMinDepth <- as.numeric(sub("Zmin=|","", allLines[MinDepthLine]))
-  #get numeric mm/pix value
+  #get numeric value
   cat(decimalNumericMaxDepth)
   cat(decimalNumericMinDepth)
   
@@ -185,8 +198,27 @@ readZooscan333<-function(filename.a,filename.b){
   #but this may be an issue later. This is probably just an error with printing, 
   #and not with the actual numeric value 
   decimalNumericSplit <- as.numeric(sub("SubPart=|","", allLines.a[SplitLine]))
-  #get numeric mm/pix value
+  #get numeric value
   cat(decimalNumericSplit)
+  
+  #This part is commented out because it isn't needed unless the initial split is 
+  #something other than 1/4.
+  #The initial split was accidentally entered as "tot" rather than 1/4 for these samples, 
+  #so I hardcoded it to multiply by 4 on line "calculate zooplankton area accounting for
+  #1/4 split". Uncomment if this isn't the case:
+  #InitSplitLine <- grep("FracId=", allLines)
+  #print the line number where initial split fraction is (1=1/1, 2=1/2, 4=1/4, etc.):
+  #cat('line number of Init. Split = ', InitSplitLine)
+  #print the contents of the InitSplitLine in allLines:
+  #cat('raw string data at that line is: ', allLines[InitSplitLine])
+  #convert from string to numeric: 
+  #decimalNumericInitSplit <- as.numeric(sub("FracId=|","", allLines[InitSplitLine]))
+  #get numeric value
+  #cat(decimalNumericInitSplit)
+  #if you're using the above code, you should replace "zoototal$Area.um2x4 <- zoototal$Area.um2 * 4" with: 
+  #zoototal$Area.um2xInitSplit <- zoototal$Area.um2 * decimalNumericInitSplit
+  #also replace "zoototal$Area.um2x4 * (decimalNumericSplit/2)*100)/decimalNumericVol" with:
+  #zoototal$Area.um2xInitSplit * (decimalNumericSplit/2)*100)/decimalNumericVol
   
   #calculate zooplankton area accounting for 1/4 split  
   zoototal$Area.um2x4 <- zoototal$Area.um2 * 4
@@ -209,7 +241,7 @@ readZooscan333<-function(filename.a,filename.b){
   #Convert to decimal numeric 
   decimalNumericMaxDepth <- as.numeric(sub("Zmax=|","", allLines.a[MaxDepthLine]))
   decimalNumericMinDepth <- as.numeric(sub("Zmin=|","", allLines.a[MinDepthLine]))
-  #get numeric mm/pix value
+  #get numeric value
   cat(decimalNumericMaxDepth)
   cat(decimalNumericMinDepth)
   
