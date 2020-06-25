@@ -15,3 +15,4 @@ bins<-c(243,seq(from=249, to=255, by=1))
 hist(ZooscanData$Max)
 print("done")
 
+jkth
