@@ -109,3 +109,8 @@ ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3,
 
 #combine 1000, 5000, and 333 um samples into one data set
 moc_all <- rbind(moc_1000, moc_333, moc_5000)
+#make new column in moc_all for Area as categorical data
+moc_all$Area.um2per100m3_char <- as.character(moc_all$Area.um2per100m3)
+moc_all$Area.um2per100m3 <- as.numeric(moc_all$Area.um2per100m3)
+#summarize moc_all data to double check everything worked
+summary(moc_all)

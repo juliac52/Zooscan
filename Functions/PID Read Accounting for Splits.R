@@ -3,9 +3,9 @@ readZooscan<-function(filename){
   library(reader)
   #Removing the header: 
   #open file for reading in text mode 
-  conn <- file(filename,open="r")
+  conn <- file(filename , open="r")
   #load all the lines of the text file into a string vector called allLines
-  allLines <-readLines(conn)
+  allLines <- readLines(conn)
   #close connection 
   close(conn)
   #Find the line number of the end of the header, and mark it as headerEnd 
