@@ -107,4 +107,5 @@ ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3,
   title(main="Biomass by Depth", 
          sub="5000um or greater", xlab="Biomass (Area.um2per100m3)")
 
-
+#combine 1000, 5000, and 333 um samples into one data set
+moc_all <- rbind(moc_1000, moc_333, moc_5000)
