@@ -100,7 +100,11 @@ moc_5000$Depth_Range = paste(moc_5000$Min_Depth_Char, moc_5000$Max_Depth_Char, s
 #column (Max_Depth)
 moc_5000$Depth_Range = with(moc_5000, reorder(Depth_Range,Max_Depth))
 #plot, with coordinate flip and reversal of x axis (limits = rev)
-pl<-ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3, fill = Depth_Range)) + 
-  geom_bar(stat = "identity") + coord_flip() + 
-  scale_x_discrete(limits = rev(levels(moc_5000$Depth_Range)))
-pl
+ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3,
+                         fill = Depth_Range))  +
+  geom_bar(stat = "identity") + coord_flip() +
+  scale_x_discrete(limits = rev(levels(moc_5000$Depth_Range)))+
+  title(main="Biomass by Depth", 
+         sub="5000um or greater", xlab="Biomass (Area.um2per100m3)")
+
+
