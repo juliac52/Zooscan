@@ -112,5 +112,12 @@ moc_all <- rbind(moc_1000, moc_333, moc_5000)
 #make new column in moc_all for Area as categorical data
 moc_all$Area.um2per100m3_char <- as.character(moc_all$Area.um2per100m3)
 moc_all$Area.um2per100m3 <- as.numeric(moc_all$Area.um2per100m3)
+
+#cut() to create another column based on range of Area values
+moc_all$size = cut(moc_all$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+                                       1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
+
+moc_all$size_char <- as.character(moc_all$size)
 #summarize moc_all data to double check everything worked
 summary(moc_all)
+
