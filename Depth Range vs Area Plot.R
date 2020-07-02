@@ -109,6 +109,19 @@ ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3,
 
 #combine 1000, 5000, and 333 um samples into one data set
 moc_all <- rbind(moc_1000, moc_333, moc_5000)
+
+#plot Depth Range and Area
+p <- ggplot(moc_all, aes(x=Depth_Range, y=Area.um2per100m3,
+      fill=Depth_Range)) + 
+  geom_bar(stat = "identity") + coord_flip() +
+  scale_x_discrete(limits = rev(levels(moc_all$Depth_Range)))+
+  ggtitle("Total Biomass at Various Depth Ranges")+ 
+  labs(y="Biomass (Area.um2per100m3)", x= "Depth Ranges")
+
+#plot
+p
+
+
 #make new column in moc_all for Area as categorical data
 moc_all$Area.um2per100m3_char <- as.character(moc_all$Area.um2per100m3)
 moc_all$Area.um2per100m3 <- as.numeric(moc_all$Area.um2per100m3)
