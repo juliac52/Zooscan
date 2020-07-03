@@ -29,11 +29,12 @@ moc_333$Depth_Range = paste(moc_333$Min_Depth_Char, moc_333$Max_Depth_Char, sep=
 #reorder the depth column (Depth_Range) in relation to another numeric
 #column (Max_Depth)
 moc_333$Depth_Range = with(moc_333, reorder(Depth_Range,Max_Depth))
-#plot, with coordinate flip and reversal of x axis (limits = rev)
-p<-ggplot(moc_333, aes(x= Depth_Range, y=Area.um2per100m3, fill = Depth_Range)) + 
-  geom_bar(stat = "identity") + coord_flip() + 
-  scale_x_discrete(limits = rev(levels(moc_333$Depth_Range)))
-p
+
+#cut() to create another column based on range of Area values
+moc_333$size = cut(moc_333$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+                                       1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
+
+moc_333$size_char <- as.character(moc_333$size)
 ################################################################
 
 #code to combine matrices, provide depth range information, and make a plot to 
@@ -64,11 +65,13 @@ moc_1000$Depth_Range = paste(moc_1000$Min_Depth_Char, moc_1000$Max_Depth_Char, s
 #reorder the depth column (Depth_Range) in relation to another numeric
 #column (Max_Depth)
 moc_1000$Depth_Range = with(moc_1000, reorder(Depth_Range,Max_Depth))
-#plot, with coordinate flip and reversal of x axis (limits = rev)
-plot<-ggplot(moc_1000, aes(x= Depth_Range, y=Area.um2per100m3, fill = Depth_Range)) + 
-  geom_bar(stat = "identity") + coord_flip() + 
-  scale_x_discrete(limits = rev(levels(moc_1000$Depth_Range)))
-plot
+
+
+#cut() to create another column based on range of Area values
+moc_1000$size = cut(moc_1000$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+                                       1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
+
+moc_1000$size_char <- as.character(moc_1000$size)
 ###############################
 
 #code to combine matrices, provide depth range information, and make a plot to 
@@ -99,14 +102,16 @@ moc_5000$Depth_Range = paste(moc_5000$Min_Depth_Char, moc_5000$Max_Depth_Char, s
 #reorder the depth column (Depth_Range) in relation to another numeric
 #column (Max_Depth)
 moc_5000$Depth_Range = with(moc_5000, reorder(Depth_Range,Max_Depth))
-#plot, with coordinate flip and reversal of x axis (limits = rev)
-ggplot(moc_5000, aes(x= Depth_Range, y=Area.um2per100m3,
-                         fill = Depth_Range))  +
-  geom_bar(stat = "identity") + coord_flip() +
-  scale_x_discrete(limits = rev(levels(moc_5000$Depth_Range)))+
-  title(main="Biomass by Depth", 
-         sub="5000um or greater", xlab="Biomass (Area.um2per100m3)")
 
+
+#cut() to create another column based on range of Area values
+moc_5000$size = cut(moc_5000$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+                                       1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
+
+moc_5000$size_char <- as.character(moc_5000$size)
+
+
+######
 #combine 1000, 5000, and 333 um samples into one data set
 moc_all <- rbind(moc_1000, moc_333, moc_5000)
 
