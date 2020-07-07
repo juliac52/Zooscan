@@ -1,5 +1,7 @@
 # library
 library(ggplot2)
+library(grid)
+library(gridExtra)
 
 #run depth range and area plot file first
 # Stacked bar graph
@@ -61,7 +63,7 @@ moc_8$size_char <- as.character(moc_8$size)
 
 
 #plot of all data
-ggplot(moc_8, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+p8<-ggplot(moc_8, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
   geom_bar(position="stack", stat="identity")+
   ggtitle("Size Distribution Across Various Depths")+ 
   labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
@@ -92,7 +94,7 @@ moc_10$size_char <- as.character(moc_10$size)
 
 
 #plot of all data
-ggplot(moc_10, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+p10<-ggplot(moc_10, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
   geom_bar(position="stack", stat="identity")+
   ggtitle("Size Distribution Across Various Depths")+ 
   labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
@@ -134,7 +136,7 @@ moc_11$size_char <- as.character(moc_11$size)
 
 
 #plot of all data
-ggplot(moc_11, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+p11<-ggplot(moc_11, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
   geom_bar(position="stack", stat="identity")+
   ggtitle("Size Distribution Across Various Depths")+ 
   labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
@@ -180,9 +182,18 @@ moc_12$size_char <- as.character(moc_12$size)
 
 
 #plot of all data
-ggplot(moc_12, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+p12<-ggplot(moc_12, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
   geom_bar(position="stack", stat="identity")+
   ggtitle("Size Distribution Across Various Depths")+ 
   labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
 
+
+#####combine graphs into one frame #way too small, doesn't work
+grid.arrange(p8, p10, p11, p12, nrow = 2)
+
+
+ggplot(moc_12, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+  geom_violin(width=1.4)+
+  ggtitle("Size Distribution Across Various Depths")+ 
+  labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")
 
