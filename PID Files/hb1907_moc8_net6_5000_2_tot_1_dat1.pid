@@ -1,0 +1,209 @@
+PID
+[Image]
+Scanning_date= 20200323_1224
+Scanning_area= large
+Vuescan_version= 9.5.24
+[VueScan]
+[Input]
+Source=PerfectionV800
+Options=2
+DefaultFolder=C:\\Zooscan_hb1907_moc8_net6\\Zooscan_scan
+[Output]
+JPEGFile=0
+DefaultFolder=C:\\Zooscan_hb1907_moc8_net6\\Zooscan_scan
+RawFileName=C:\\Zooscan_hb1907_moc8_net6\\Zooscan_scan\\_raw\\hb1907_moc8_net6_5000_2_tot_raw_1=.tif
+RawFileType=2
+RawCompression=0
+[Output-PerfectionV800-Flatbed]
+Copyright=Zooscan_CNRS_2015
+LogFile=0
+Options=2
+PDFFile=0
+RawFile=1
+[Prefs]
+GraphType=2
+ExternalViewer=0
+ExternalEditor=0
+WindowYOffset=243
+WindowXSize=1545
+WindowYSize=1020
+GuidedMode=0
+StartupTip=0
+XOffset=5176
+YOffset=4128
+Options=1
+FontSize=7
+SplashScreen=0
+[Input-PerfectionV800-Flatbed]
+Media=1
+BitsPerPixel=3
+MakeGrayFrom=2
+PreviewResolution=8
+ScanResolution=3
+Rotation=3
+Mirror=1
+[Crop-PerfectionV800-Flatbed]
+CropSize=0
+XSize=29544
+YSize=48736
+AutoOffset=0
+PreviewArea=0
+PreviewXOffset=5180
+PreviewYOffset=4130
+PreviewXSize=29550
+PreviewYSize=48740
+[Color-PerfectionV800-Flatbed]
+ColorBalance=0
+[Prefs-PerfectionV800-Flatbed]
+CropUnits=0
+PrintedUnits=0
+ 
+[LUT]
+Image_split= NO
+Color_Balance= manual
+Filter= no
+Min=  529
+Max=  44155
+Gamma=  1
+Order=  before
+Grey_mode_auto=  yes
+OD_range=  1.8
+Ratio=  1.15
+Median_level=  38395.8
+ 
+[Info]
+Hardware=  Hydroptic v4 Window7/8
+Software= vuescan9.5.24
+ImageType=  Zooscan
+Resolution=  2400
+Author=  JSC
+ 
+[Sample]
+Project= hb1907_moc8_net6
+SampleId= hb1907_moc8_net6_5000_2
+Scanop= JSC
+Ship= HB_Bigelow
+Scientificprog= OTZ
+StationId= 3
+Date= 20190801-1049
+Latitude= 39.3200
+Longitude= -68.9593
+Depth= 99999
+CTDref= 8
+Otherref= NaN
+Townb= 1
+Towtype= 1
+Nettype= MOCNESS
+Netmesh= 333
+Netsurf= 1
+Zmax= 100
+Zmin= 51
+Vol= 732.1
+Sample_comment= nan
+vol_qc= 1
+depth_qc= 1
+sample_qc= 1111
+barcode= nan
+latitude_end= 39.1970
+longitude_end= -68.9043
+net_duration= 38904
+ship_speed_knots= 99999
+cable_length= 99999
+cable_angle= 99999
+cable_speed= 99999
+nb_jar= 1
+ 
+[Fraction]
+Code=  1
+FracId= tot
+Min= 5000
+Max= 999999
+ 
+[Subsample]
+SubPart= 2
+SubMethod=  motoda
+CellPart=  1
+Replicates=  1
+VolIni=  1
+VolPrec=  1
+Observation= Scan_in_2_x_1_2_splits_due_to_high_density_
+ 
+C:\Zooscan\Zooscan_temp\ C:\\Zooscan_hb1907_moc8_net6
+[Process]
+ConfigFile= process_install_both_config.txt
+Version= 7.21_2015/09/11_Picheral_CNRS
+Multiple_image_process= YES
+Date=  20200706_1607
+ 
+[Image_Process]
+vis1_file= PROCESS
+Date=  20200706_1607
+hb1907_moc8_net6_5000_2_tot_1
+ConfigDataImg= +last+no+created_20200304_1521+100+0+4+2400+0.9+0+150+2+0.025+0.25+2.0+20.0+0+neutral+243+174+1+1+1+pixel+100.0+0.3+100+1.0+0.34+4.04+16.0+8+4.0+1.3+0.05+0.1+10+both
+Image_process= Zooscan_1asep
+Version= 7.21_Picheral_CNRS
+Image_path=  C:\\Zooscan_hb1907_moc8_net6
+Image=  hb1907_moc8_net6_5000_2_tot_1.tif
+Frame=  _1
+Raw_image_depth=  8 bits
+Raw_image_size=  358697170
+Raw_Image_BackUp_as_ZIP= NO
+Final_Image= 8bits
+Corrected_width=  24368
+Corrected_heigth=  14720
+Grey_Level_Adjustement= YES
+Resolution=  2400
+ODxminref=  27651
+ODyminref=  8894
+ODxdimref=  60
+ODydimref=  600
+OD_measured=  NaN
+Max-min_grey_difference_in_OD=  -255
+STD=  0
+OD_correction= NO
+Background_correct_using=  20200323_0838_background_large_manual.tif
+Image_treatment= natural
+Right_side= Automatic_supress
+Right_side_Limit=  24251
+Transparent_frame= CLEAR
+Greytaux= 0.9
+Greylimitright= 194
+Right_limit= 24238
+Greylimitrleft= 198
+Left_limit= 108
+Greylimittop= 179
+Upper_limit= 226
+Greylimitbottom= 203
+Bottom_limit= 14524
+Vis_image_save= YES
+ 
+[Particules_Process]
+Particule_Process_Date=  20200706_1609
+Version= 6.15_2009/10/25_Picheral_CNRS
+ConfigDataP= +last+no+created_20200304_1521+100+0+4+2400+0.9+0+150+2+0.025+0.25+2.0+20.0+0+neutral+243+174+1+1+1+pixel+100.0+0.3+100+1.0+0.34+4.04+16.0+8+4.0+1.3+0.05+0.1+10+both
+Resolution=  2400
+Calibration=  created_20200304_1521
+Threshold=  243
+PixSize=   0.0106
+MinSize=  0.3
+MaxSize=  100
+Method=  default [ 0.3000  -  100 ]
+Measures_unit=  pixel
+Min_Area=  631
+Max_Area=  70120652
+Separation_Mask= UNUSED
+Particle_Analysis= YES
+Analysis_Method= from_thumbnail_images_fractalA_skeleton_Slope_Histcum_Mg5_Complexity_Symetry
+B/W_ratio= 0.0790
+Analyse_param_1= area_bounding_area_fraction_limit_redirect=hb1907_moc8_net6_5000_2_tot_1_decimal=2
+Analyse_limits_1= minimum=631_maximum=70120652_circularity=0.00-1.00_bins=20_show=Outlines_include_exclude_flood_record
+Analyse_param_2= area_mean_standard_modal_min_centroid_center_perimeter_bounding_fit_circularity_feret's_integrated_median_skewness_kurtosis_area_fraction_limit_redirect=hb1907_moc8_net6_5000_2_tot_1_decimal=2
+Splitted analysis
+nansum= 0
+Analysed_Objects=  1080
+TAG= NO
+Results=  SAVED
+Date=  20200706_1624
+ 
+[Data]
+!Item;Label;Area;Mean;StdDev;Mode;Min;Max;X;Y;XM;YM;Perim.;BX;BY;Width;Height;Major;Minor;Angle;Circ.;Feret;IntDen;Median;Skew;Kurt;%Area;XStart;YStart;Area_exc;Fractal;Skelarea;Slope;Histcum1;Histcum2;Histcum3;XMg5;YMg5;Nb1;Nb2;Nb3;Compentropy;Compmean;Compslope;CompM1;CompM2;CompM3;Symetrieh;Symetriev;Symetriehc;Symetrievc;Convperim;Convarea;Fcons;ThickR;Tag
