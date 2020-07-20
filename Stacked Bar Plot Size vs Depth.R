@@ -37,14 +37,32 @@ ggplot(moc_all, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) +
 #tow8
 moc8_net1_5000<-readZooscan("hb1907_moc8_net1_5000_1_tot_1_dat1.pid")
 moc8_net2_5000<-readZooscan("hb1907_moc8_net2_5000_1_tot_1_dat1.pid")
+moc8_net3_5000<-readZooscan("hb1907_moc8_net3_5000_1_tot_1_dat1.pid")
+moc8_net4_5000<-readZooscan("hb1907_moc8_net4_5000_1_tot_1_dat1.pid")
+moc8_net5_5000<-readZooscan("hb1907_moc8_net5_5000_1_tot_1_dat1.pid")
+moc8_net6_5000<-readZooscan("hb1907_moc8_net6_5000_1_tot_1_dat1.pid")
+moc8_net8_5000<-readZooscan("hb1907_moc8_net8_5000_1_tot_1_dat1.pid")
 moc8_net1_1000<-readZooscan("hb1907_moc8_net1_1000_1_tot_1_dat1.pid")
 moc8_net2_1000<-readZooscan("hb1907_moc8_net2_1000_1_tot_1_dat1.pid")
+moc8_net3_1000<-readZooscan("hb1907_moc8_net3_1000_1_tot_1_dat1.pid")
+moc8_net4_1000<-readZooscan("hb1907_moc8_net4_1000_1_tot_1_dat1.pid")
+moc8_net5_1000<-readZooscan("hb1907_moc8_net5_1000_1_tot_1_dat1.pid")
+moc8_net6_1000<-readZooscan("hb1907_moc8_net6_1000_1_tot_1_dat1.pid")
+moc8_net8_1000<-readZooscan("hb1907_moc8_net8_1000_1_tot_1_dat1.pid")
 moc8_net1_333<-readZooscan333("hb1907_moc8_net1_333_1_tot_1_dat1 (1).pid","hb1907_moc8_net1_333_2_tot_1_dat1.pid")
 moc8_net2_333<-readZooscan333("hb1907_moc8_net2_333_1_tot_1_dat1.pid","hb1907_moc8_net2_333_2_tot_1_dat1.pid")
+moc8_net3_333<-readZooscan333("hb1907_moc8_net3_333_1_tot_1_dat1.pid","hb1907_moc8_net3_333_2_tot_1_dat1.pid")
+moc8_net4_333<-readZooscan333("hb1907_moc8_net4_333_1_tot_1_dat1.pid","hb1907_moc8_net4_333_2_tot_1_dat1.pid")
 moc8_net5_333<-readZooscan333("hb1907_moc8_net5_333_1_tot_1_dat1.pid","hb1907_moc8_net5_333_2_tot_1_dat1.pid")
+moc8_net6_333<-readZooscan333("hb1907_moc8_net6_333_1_tot_1_dat1.pid","hb1907_moc8_net6_333_2_tot_1_dat1.pid")
+moc8_net8_333<-readZooscan333("hb1907_moc8_net8_333_1_tot_1_dat1.pid","hb1907_moc8_net8_333_2_tot_1_dat1.pid")
 #combine tow 8 files
-moc_8 <- rbind(moc8_net1_5000, moc8_net2_5000, moc8_net1_1000,
-               moc8_net2_1000, moc8_net1_333, moc8_net2_333, moc8_net5_333)
+moc_8 <- rbind(moc8_net1_5000, moc8_net2_5000,moc8_net3_5000, moc8_net4_5000,
+               moc8_net5_5000,moc8_net6_5000, moc8_net8_5000, moc8_net1_1000,
+               moc8_net2_1000,moc8_net3_1000, moc8_net4_1000, moc8_net5_1000, 
+               moc8_net6_1000, moc8_net8_1000, moc8_net1_333, moc8_net2_333, 
+               moc8_net3_333, moc8_net4_333, moc8_net5_333, moc8_net6_333,
+               moc8_net8_333)
 
 #make new columns in moc_1000 for max and min depths as character data 
 moc_8$Max_Depth_Char <- as.character(moc_8$Max_Depth)
@@ -56,7 +74,7 @@ moc_8$Depth_Range = paste(moc_8$Min_Depth_Char, moc_8$Max_Depth_Char, sep="-")
 moc_8$Depth_Range = with(moc_8, reorder(Depth_Range,Max_Depth))
 
 #cut() to create another column based on range of Area values
-moc_8$size = cut(moc_8$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+moc_8$size = cut(moc_8$Area.um2, c(1.2e+03,1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
                                          1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
 
 moc_8$size_char <- as.character(moc_8$size)
@@ -67,7 +85,7 @@ p8<-ggplot(moc_8, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) +
   geom_bar(position="stack", stat="identity")+
   ggtitle("Size Distribution Across Various Depths")+ 
   labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
-
+p8
 
 ############tow10 note:only one net
 moc10_net3_333<-readZooscan333("hb1907_moc10_net3_333_1_tot_1_dat1.pid","hb1907_moc10_net3_333_2_tot_1_dat1.pid")
