@@ -2,6 +2,8 @@ getwd()
 
 setwd("/Users/KatieRedmond/Desktop/Zooscan Git KR/PID Files")
 
+#not super useful with range of depths and overlapping bins
+
 #code to combine matrices, provide depth range information, and make a plot to 
 #reflect the relationship between area and depth based on “merging data.R”
 #read in all 11 333um samples using readZooscan333 function 

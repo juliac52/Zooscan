@@ -1,3 +1,28 @@
+#first get the numbers (first, second, etc) that I created
+
+Data13 <- readZooscan333("hb1907_moc11_net3_333_1_tot_1_dat1.pid",
+                         "hb1907_moc11_net3_333_2_tot_1_dat1.pid")
+Data16<- readZooscan333("hb1907_moc11_net5_333_1_tot_1_dat1.pid",
+                        "hb1907_moc11_net5_333_2_tot_1_dat1.pid")
+
+Data19 <- readZooscan333("hb1907_moc12_net2_333_1_tot_1_dat1.pid", 
+                         "hb1907_moc12_net2_333_2_tot_1_dat1.pid")
+Data22 <- readZooscan333("hb1907_moc12_net5_333_1_tot_1_dat1.pid", 
+                         "hb1907_moc12_net2_333_2_tot_1_dat1.pid")
+
+Data25 <- readZooscan333("hb1907_moc12_net6_333_1_tot_1_dat1.pid",
+                         "hb1907_moc12_net6_333_2_tot_1_dat1.pid")
+Data14 <- readZooscan("hb1907_moc11_net5_5000_1_tot_1_dat1.pid")
+Data15 <- readZooscan("hb1907_moc11_net5_1000_1_tot_1_dat1.pid")
+Data17 <- readZooscan("hb1907_moc12_net2_5000_1_tot_1_dat1.pid")
+Data18 <- readZooscan("hb1907_moc12_net2_1000_1_tot_1_dat1.pid")
+Data20 <- readZooscan("hb1907_moc12_net5_5000_1_tot_1_dat1.pid")
+Data21 <- readZooscan("hb1907_moc12_net5_1000_1_tot_1_dat1.pid")
+Data23 <- readZooscan("hb1907_moc12_net6_5000_1_tot_1_dat1.pid")
+Data24 <- readZooscan("hb1907_moc12_net6_1000_1_tot_1_dat1.pid")
+
+
+
 #DAY
 #create first matrix moc8 daytime, size creatures >5000um
 first <- data.frame(
@@ -190,10 +215,7 @@ install.packages("ggplot2")
 library(ggplot2)
 library(tidyverse)
 
-#install r color palettes 
-install.packages('RColorBrewer')
-library(RColorBrewer)
-head(brewer.pal.info)
+
 #########################################################################
 #I think the increasing=TRUE argument didn't work because the depth data is 
 #character data rather than numeric data. Can check this with class(zoodata.day$x2)

@@ -74,17 +74,18 @@ moc_8$Depth_Range = paste(moc_8$Min_Depth_Char, moc_8$Max_Depth_Char, sep="-")
 moc_8$Depth_Range = with(moc_8, reorder(Depth_Range,Max_Depth))
 
 #cut() to create another column based on range of Area values
-moc_8$size = cut(moc_8$Area.um2, c(1.2e+03,1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
+moc_8$size = cut(moc_8$Area.um2, c(1.2e+04,1.2e+05, 1.2e+06,1.2e+07,
                                          1.2e+08, 1.2e+09,1.2e+10, 1.2e+11))
 
-moc_8$size_char <- as.character(moc_8$size)
+moc_8$Density_Ranges <- as.character(moc_8$size)
 
 
 #plot of all data
-p8<-ggplot(moc_8, aes(fill=size_char, y=Area.um2per100m3, x=Depth_Range)) + 
+p8<-ggplot(moc_8, aes(fill=size_char, y=Area.um2per100m3, x = Depth_Range)) + 
   geom_bar(position="stack", stat="identity")+
-  ggtitle("Size Distribution Across Various Depths")+ 
-  labs(x="Depth Ranges", y= "Size (Area.um2per100m3)")+coord_flip()
+  ggtitle("Size Distribution Across Various Depths for Moc8")+ 
+  labs(x="Depth Ranges (m)", y= "Density (Area.um2per100m3)")+
+  coord_flip()
 p8
 
 ############tow10 note:only one net
