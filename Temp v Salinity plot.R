@@ -139,19 +139,17 @@ readZooscan2(moc_all)
 #######
 
 
-#scatterplot of average t and average s by area of species
+#make sure you have ggplot for any of these following plots
 library(ggplot2)
-scatterplot(avgt ~ avgs | Area_um2, data=moc_all;Salinity_Data_07_22_20, 
-            xlab="Weight of Car", ylab="Miles Per Gallon", 
-            main="Enhanced Scatter Plot")
 
-# 3D Scatterplot
+
+# 3D Scatterplot of temp, area, vs salinity #not super useful, better two seperate 2D graphs
 install.packages("scatterplot3d")
 library(scatterplot3d)
 attach(moc_all_data)
 scatterplot3d(x=avgt,z=Area_um2,y=avgs, main="3D Scatterplot")
 
-#bar plot of density by salinity
+#####bar plot of density by salinity
 #first need to merge salinity and mocness data
 moc_8_total_data <- merge(data.frame(Salinity_Data_07_22_20, row.names=NULL), data.frame(moc_8, row.names=NULL), 
       by = 0, all = TRUE)[-1]
@@ -163,11 +161,19 @@ moc_8$density = cut(moc_8$Area.um2per100m3, c(100, 1000, 1500, 2000))
 moc_8$density_char <- as.character(moc_8$density)
 
 
-
+#graph salinity bar plot with scale color gradient
 salinityplot<-ggplot(moc_8_total_data, aes(fill=density_char, y=Area.um2per100m3, x = avgs)) + 
   geom_bar(position="stack", stat="identity")+
-  ggtitle("Size Distribution Across Various Depths for Moc8")+ 
+  ggtitle("Salinity vs Density of Species for Moc 8")+ 
   labs(x="Average Salinities", y= "Density (Area.um2per100m3)")+coord_flip()+
+  scale_color_gradient(low='skyblue', high='royalblue')
+salinityplot
+
+#graph temperature bar plot with scale color gradient
+tempplot<-ggplot(moc_8_total_data, aes(fill=density_char, y=Area.um2per100m3, x = avgt)) + 
+  geom_bar(position="stack", stat="identity")+
+  ggtitle("Salinity vs Density of Species for Moc 8")+ 
+  labs(x="Average Temperature", y= "Density (Area.um2per100m3)")+coord_flip()+
   scale_color_gradient(low='skyblue', high='royalblue')
 salinityplot
 
